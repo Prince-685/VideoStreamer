@@ -1,0 +1,278 @@
+<style>
+
+*{
+   text-decoration:none;
+}
+	.zoom{
+      cursor: pointer;
+    }
+    .img{
+        position: absolute;
+        left:0px;
+        top:0;
+
+    }
+    #data {
+            box-shadow: #2f3640 0px -20px 25px 0px inset, #2f3640 0px -60px 30px 0px inset, #2f3640 0px 4px 2px, #2f3640 0px 8px 4px;
+            height: 100px;
+            width:139px;
+            font-weight:bold;
+            font-size: 10px;
+            position: absolute;
+            top: 7.0rem;
+            left: 0px;
+            padding: 10px;
+            color:white;
+         }
+    .zoom:hover {
+        background-color: #000;
+        transition: transform .5s;
+        transform: scale(1.2);
+        border-radius:10px;
+        z-index:10;
+    }
+    .img #data{
+        opacity:0;
+    }
+   .img:hover{
+        z-index:100;
+    }
+    .img:hover #data{
+        opacity:1;
+    }
+      input {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: groove;
+        background-color: #130f40;
+        color:#fff;
+      }
+
+      .no-outline:focus {
+        outline: none;
+      }
+
+	</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    <title>VideoStream</title>
+</head>
+<body>
+<div style="background:#000; height:auto; padding:5px;">
+<div style="background: #000; display:flex; flex-direction:row; align-items:center;">
+  <div style="bacground:#FFF; padding:10px; border-radius:10px; margin-right:5px;">
+      <img class="logo" src="/static/stream-logo.png" width="110" height="30">
+  </div>
+    {% for row in rows %}
+      <div style="font-size:17; margin-right:15px; padding:10px; font-weight:bold; letter-spacing:1px; color:#f6e58d;">
+          {{row.1}}
+      </div>
+    {% endfor %}
+  <div style="padding:5px;margin-left:auto;justify-content: right;  ">
+       <img src="/static/user.png"  width="30"/>
+       <a  style="background:#000; color:#FFF; border-color: #000;" class = "button  modal-button" data-target = "#modal">Login</a>
+  </div>
+</div>
+    <!----------Dialog ------>
+    <div id = "modal" class = "modal">
+  <div class="modal-background"></div>
+  <div style="width:400px; height:250px; background: #130f40; " class="modal-content">
+      <div style="display:flex;font-weight:700; font-size: 22px;margin-top:20px; color:#FFF;padding: 10px;margin-left: 35px; ">Login to continue</div>
+
+         <input type="text" class="no-outline" style="margin:25px 50px;dispay:flex;justify-content:center;align-items:center;border-bottom:groove;border-bottom-color:#4834d4;" pattern="[7-9]{1}[0-9]{9}" placeholder="Enter Mobile No."/>
+
+         <button data-target = "#modalotp" style="margin-top:15px;display:flex;justify-content:center;padding:10px;color:#fff;align-items:center;margin-left:50px;margin-right:50px;" class="button is-link is-hovered m_close">Continue</button>
+
+
+
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+ <!----------OTP ------>
+    <div id = "modalotp" class = "modal">
+  <div class="modal-background"></div>
+  <div style="width:400px; height:250px; background: #130f40; " class="modal-content">
+      <div style="display:flex;justify-content:center;font-weight:700; font-size: 22px; color:#FFF;padding: 10px; margin-top: 20px;margin-left: 35px; ">OTP</div>
+
+         <button style="margin-top:45px;display:flex;justify-content:center;padding:10px;color:#fff;width:auto;align-items:center;margin-left:50px;margin-right:50px;" class="button is-link is-hovered m_close">Continue</button>
+
+
+
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- Start Hero Carousel -->
+		<section class="hero is-medium has-carousel" >
+			<div id="carousel-demo" class="hero-carousel" >
+				<div class="item-1" style="width:800px; height:500px;">
+									<img src="/static/sc1.jpg"  >
+									</div>
+									<div class="item-2" style="width:800px; height:500px;">
+										<img src="/static/sc4.jpg"  >
+									</div>
+									<div class="item-3" style="width:800px; height:500px;">
+									<img src="/static/sc3.jpg"  >
+									</div>
+									<div class="item-4" style="width:800px; height:500px;"  >
+								   <img src="/static/sc2.jpg"  >
+									</div>
+				                    <div class="item-5" style="width:800px; height:500px;">
+								<img src="/static/sc1.jpg"  >
+									</div>
+										<div class="item-6" style="width:800px; height:500px;">
+														<img src="/static/sc4.jpg" width="800" >
+														</div>
+
+			</div>
+			<div class="hero-head"></div>
+			<div class="hero-body"></div>
+			<div class="hero-foot"></div>
+		</section>
+		<!-- End Hero Carousel -->
+
+    <div style="padding:5px;color: #FFF;font-weight: bold;font-size: 22px;letter-spacing: 1px">
+        Latest & Trending
+    </div>
+	<section class="hero is-medium has-carousel"  style="height:250px;">
+		<div id="trending" class="hero-carousel" >
+		{% for trending in trows %}
+		   <div class="zoom" style="position:relative;margin: 5px;">
+               <a  href="/preview?row={{ trending }}" style="color:#fff;"><img  src="/static/{{trending.11}}" style="margin-top:12px;height:200px;width:180px; border-radius:10px;" />
+
+               <div class="img">
+              <div id="data">
+        <div>
+            {{trending.2}} : {{trending.3}}
+        </div>
+         <div >Rating: {{trending.6}} <i class="fas fa-star" style="color:#f9ca24;"></i> &nbsp Year: {{trending.5}}
+         </div>
+
+         <div>
+            <div>
+            {{trending.4}}</div>
+         </div>
+         <div>
+           <div>
+            {{trending.7}}
+           </div>
+         </div>
+    </div>
+               </div>
+               </a>
+           </div>
+		{% endfor %}
+		</div>
+	</section>
+
+
+	 <div style="padding:5px; color:#FFF;font-weight: bold;font-size: 22px;letter-spacing: 1px">
+       TV Shows & Web Series
+    </div>
+    <section class="hero is-medium has-carousel"  style="height:180px;">
+		<div id="tvshows" class="hero-carousel" >
+		{% for tv in tvrows %}
+		   <div class="zoom" style="margin: 5px;">
+               <a  href="/tvpreview?row={{ tv }}"><img src="/static/{{tv.11}}" style="width:150px; border-radius:10px;" /></a>
+		   </div>
+		{% endfor %}
+		</div>
+	</section>
+</div>
+
+<div style="background-color:#192a56;position: absolute; margin: 0 auto; width:100%;" >
+                <div style="margin:0 auto;width:77%;">
+                    <div style="padding:10px;margin:10px;list-style-type: none;float: left; width:45%;">
+                        <h1 style="text-align: left;color:#ffffff;border-bottom: 2px solid red;">Contact</h1>
+                        <li style="float: left;padding-right: 20px;"><a href="#"style="font-weight:bold;color:#ffffff;font-size: 15px;text-decoration: none;" >Home</a></li>
+                        <li style="float: left;padding-right: 20px;"><a href="#"style="font-weight:bold;color:#ffffff;font-size: 15px;text-decoration: none;">About</a></li>
+                        <li style="float: left;padding-right: 20px;"><a href="#" style="font-weight:bold;color:#ffffff;font-size: 15px;text-decoration: none;">Contact</a></li>
+                        <li style="float: left;padding-right: 20px;"><a href="#" style="font-weight:bold;color:#ffffff;font-size: 15px;text-decoration: none;">Terms & Condition</a></li>
+                        <div style="text-align: left;padding-top: 20px;font-size: 16px;color:#ffffff">
+                            <p style="font-size: 14px;"><i class="fa fa-home" style="font-size:16px"></i> Head Office :- H.C. : 13, Gulabchand Ki Bagichi, Behind Jhawar Estate, Thatipur, Gwalior- 474011 (M.P.)</p>
+                        </div>
+                    </div>
+                    <div style="padding:10px;margin:10px;list-style-type: none;float: left; width:20%;">
+                        <h1 style="text-align: left;color:#ffffff;border-bottom: 2px solid red;;">Connect with us</h1>
+                        <div style="text-align: left;padding-top: 20px;font-size: 16px;color:#ffffff">
+
+                            <i class="fab fa-facebook-square" style="font-size:36px"></i>
+                            <i class="fab fa-twitter-square" style="font-size:36px"></i>
+                            <i class="fab fa-instagram" style="font-size:36px"></i>
+
+                        </div>
+                    </div>
+                    <div style="padding:10px;margin:10px;list-style-type: none;float: left; width:23%;">
+                        <h1 style="text-align: left;color:#ffffff;border-bottom: 2px solid red;">Disney+ Hotstar App</h1>
+                        <div style="text-align: left;font-size: 16px;color:#ffffff">
+                            <a href="#"><img style="padding: 5px;" src="/static/appstore.png" ></a>
+                            <a href="#"><img  style="padding: 5px;" src="/static/playstore.png" ></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+		<script>
+			bulmaCarousel.attach('#carousel-demo', {
+				slidesToScroll: 1,
+				slidesToShow: 2,
+                autoplay:true,
+                autoplaySpeed:5000,
+                loop:true,
+
+			});
+		</script>
+          <script>
+			bulmaCarousel.attach('#trending', {
+				slidesToScroll: 1,
+				slidesToShow: 9,
+                pagination:false
+			});
+		  </script>
+          <script>
+			bulmaCarousel.attach('#tvshows', {
+				slidesToScroll: 1,
+				slidesToShow: 10,
+
+			});
+		  </script>
+        <script>
+         $(".modal-button").click(function() {
+            var target = $(this).data("target");
+            $("html").addClass("is-clipped");
+            $(target).addClass("is-active");
+         });
+
+         $(".modal-close").click(function() {
+            $("html").removeClass("is-clipped");
+            $(this).parent().removeClass("is-active");
+         });
+
+          $(".m_close").click(function() {
+            $("html").removeClass("is-clipped");
+            $(".modal").removeClass("is-active");
+
+            var target = $(this).data("target");
+            $("html").addClass("is-clipped");
+            $(target).addClass("is-active");
+          });
+      </script>
+
+
+
+
+
+</body>
+</html>
